@@ -118,7 +118,7 @@ Try running these commands:
 
 I really wish I knew how bash knew what I was able to run. I wonder how it knows where to look? I guess it has to look down a path to find it. Let's see if there is a PATH variable.
 
-`echo $PATH$`
+`echo $PATH`
 
 This is the list of directories that your shell know's where to look for applications.
 
