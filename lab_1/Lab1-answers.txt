@@ -1,0 +1,26 @@
+Q1: What is the difference between EBS and S3?
+
+Both EBS and S3 are storage services by Amazon. They differ significantly in their use cases, though.
+
+EBS stands for Elastic Block Store. This service is comparable to a traditional hard disk that one might mount on their local system. It must be attached to an EC2 instance in order to read and write data. You initialize it to be a certain size, and it remains that size for as long as you use that instance. It is not easily scalable, although you can initialize it hold large amounts of data (up to 1TB per instance). It is good for reading and writing data, however, and has options that are even more high-performance if you need more IOPS.
+
+Amazon S3 (Simple Storage Service), on the other hand, does not have to be directly mounted to an EC2 instance. It is available directly over the internet. It is very scalable, but it is not as good for fast reading and writing. S3 is best used for storing files that need to be accessed or written intermittently, perhaps to store user data for an app. You do not have to choose a size for this volume--You only pay for what you use. Files that are accessed very infrequenly can also be archived to Amazon Glacier, an archiving service.
+
+Q2: When would you consider a cloud infrastructure for your data science tasks?
+
+If a task demands more resources than you have locally, a cloud infrastructure could be a good choice, whether it is for computing power or for storage. You can essentially rent a high-power computing cluster when you need it. Rather than running your own data center or using slower computers that you already have on hand, you can easily access computing power via the cloud. Or if your data are large in size, you can scale your disk space to what is required. You are therefore only paying for what you need at the time, with the option to easily scale-up, and without having to maintain a dedicated team to maintain and troubleshoot local servers.
+
+Q3: What is the difference between spot instances and reserved instances?
+
+Both of these are in contrast to regular On-Demand instances, where you pay a specific price for an instance for however long you choose to use it, and then you are guaranteed access to that computing instance for as long as you want.
+
+Spot instances are available via a bidding process. They can often be accessed for a much lower price than an On-Demand instance, but you are not guaranteed to have the instance for any amount of time. It is a good choice if you need some low cost computing power on a flexible schedule, for jobs that can be easily started and killed. If anyone outbids you, they will have access to that instance. When they are finished and the price drops down to what you originally bid, then your tasks can resume.
+
+Reserved instances, on the other hand, are more like On-Demand instances. You pay a fee ahead of time for a certain type of EC2 instance for 1 or 3 years. Then, you can use EC2 instances as normal. When you use an instance of the type that you reserved, you recieve a discount on that use. If you know you will be using a certain type of instance for the next 1 or 3 years relatively constantly, you can get those instances at a steep discount. This is *not* good if you will be using instances of different types or if you will be using one type of instance intermittently.
+
+Q4: List the names of four software packages installed on the UCB AMI
+
+- ipython
+- hadoop
+- hive
+- postgres
